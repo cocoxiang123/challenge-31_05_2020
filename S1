@@ -1,0 +1,24 @@
+/**
+ * @param {number[][]} points
+ * @param {number} K
+ * @return {number[][]}
+ */
+var kClosest = function(points, K) {
+    var result = [];
+        var finalResult = [];
+        var index = 0;
+        points.forEach(x => {
+
+            result.push(Math.sqrt(Math.pow(x[0], 2) + Math.pow(x[1], 2)))
+        });
+        var Tempresult = [...result];
+        var Tempresult = Tempresult.sort((a, b) => (a - b)).slice(0, K);
+        for (const i of Tempresult) {
+
+            finalResult.push(points[result.indexOf(i)]);
+            result[result.indexOf(i)] = -1;
+        }
+        return finalResult;
+
+    
+};
